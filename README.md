@@ -6,6 +6,7 @@ Instamator adını verdiğim bu yazılım ile profilinizi etkileşime sokmak ad�
 2) Instagram Timeline Feed Liker (Anasayfanızdaki gönderileri beğenir)
 3) Instagram Follower (Belirlediğiniz kullanıcının takipçilerini takip eder)
 4) Instagram Unfollower (Sizi takipten çıkan kullanıcıları tarayıp takipten çıkar)
+5) Instagram All Unfollower (Tüm takip ettiklerinizi takipten çıkar)
 
 Yazılım sürekli güncelleme alacaktır, şimdilik yukarıda listelemiş olduğum araçlar bulunmaktadır, Bu araçlar ile kendinizi tanıtabilirsiniz.
 
