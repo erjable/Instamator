@@ -12,6 +12,7 @@ echo "1) User Feed Liker\n";
 echo "2) Timeline Feed Liker\n";
 echo "3) Mass Follower\n";
 echo "4) Mass Unfollower\n";
+echo "5) Mass All Unfollower\n";
 echo "\n=============================\n";
 echo "[?] Choose A Job:";
 $chooseJob = trim(fgets(STDIN, 1024));
@@ -87,6 +88,23 @@ if($chooseJob == 1){
 	echo "[?] Total Count:";
 	$totalCount = trim(fgets(STDIN, 1024));
 	$i->nonFollowChecker($perCount, $perSecond, $totalCount);
+}else if($chooseJob == 5){
+	echo "[!] Mass All Unfollower Starting. . .\n\n";
+	sleep(2);
+	echo "[?] Your Username:";
+	$iUsername = trim(fgets(STDIN, 1024));
+	echo "[?] Your Password:";
+	$iPassword = trim(fgets(STDIN, 1024));
+	echo "\n[!] Try To Login Your Account. . .\n";
+	$i = new instamatorApp($iUsername, $iPassword);
+	sleep(2);
+	echo "[?] Per Count:";
+	$perCount = trim(fgets(STDIN, 1024));
+	echo "[?] Per Second:";
+	$perSecond = trim(fgets(STDIN, 1024));
+	echo "[?] Total Count:";
+	$totalCount = trim(fgets(STDIN, 1024));
+	$i->unfollowAll($perCount, $perSecond, $totalCount);
 }else{
 	exit;
 }

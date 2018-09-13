@@ -180,4 +180,35 @@ class instamatorApp {
 		} while($this->max_id !== null);
 	}		
 
+	public function unfollowAll($perCount, $perSecond, $totalCount){
+		do {
+			try {
+				$followedData = json_decode($this->instagram->people->getSelfFollowing($this->rank_token), true);
+				echo "\n\n[!] The people you follow are collecting...\n\n";
+				sleep(3);
+				foreach($followedData['users'] as $followedUser){
+					$doUnfollow = json_decode($this->instagram->people->unfollow($followedUser['pk']), true);
+					if($doUnfollow['status'] == "ok"){
+						echo "[{$this->perJobCount}] Unfollowed now => [".$followedUser['username']."]\n";
+						$this->perJobCount++;
+						$this->totalJobCount++;
+					}else{
+						echo "Unfollowed err => [".$followedUser['username']."]\n";
+					}
+				if($this->perJobCount > $perCount){
+					echo "\n[!] Per successfully completed! Wait ".$perSecond." seconds... [Total:{$this->totalJobCount}/{$totalCount}]\n";
+					$this->perJobCount = 1;
+					sleep($perSecond);
+				}
+				if($this->totalJobCount == $totalCount){
+					echo "\n\n[!] All pers successfully completed! [Total:{$this->totalJobCount}/{$totalCount}]\n\n";
+					exit;
+				}
+				}
+			} catch(Exception $e){
+				echo "There was a problem, please try again later.\n";
+			}	
+		} while($this->max_id !== null);
+	}	
+	
 }
